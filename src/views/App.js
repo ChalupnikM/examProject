@@ -1,10 +1,10 @@
 import './App.css';
+import React from 'react';
+import Forms from './Forms';
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>What photos are you interested in?</h1>
-    </div>
+    <Forms />
   );
 }
 
