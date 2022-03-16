@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 import axios from 'axios';
 
-import { setAllPhotos} from '../store/allPhotos';
+import { setAllPhotos } from '../store/allPhotos';
 
 export const getApi = createAsyncThunk(
     'api/getApi',

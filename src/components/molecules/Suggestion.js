@@ -1,15 +1,4 @@
-// import React from 'react';
-// import { MiniInput } from '../atoms/MiniInput';
-// import { Wrapper } from '../atoms/Wrapper';
-// import { Button } from '../atoms/Button';
 
-// const Suggestion = ({ onSubmit, }) => {
-//     return (
-//         key={priority} onSubmit={onSubmit}>{fuzzy.query}
-//     );
-// };
-
-// export default Suggestion;
 import styled from "styled-components";
 export const Suggestion = styled.div`
 width: auto;

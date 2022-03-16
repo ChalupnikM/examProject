@@ -4,8 +4,9 @@ import { Wrapper } from '../atoms/Wrapper';
 import { Button } from '../atoms/Button';
 import { useSelector } from 'react-redux';
 import { getApi } from '../../store/apiSlice';
-import { setSearchValue } from '../../store/searchValue';
+import { setFlag } from '../../store/flagSlice';
 import { useDispatch } from 'react-redux';
+import { setSearchValue } from '../../store/searchValue';
 
 
 const Form = ({ onChange, value, name, id }) => {
@@ -14,7 +15,8 @@ const Form = ({ onChange, value, name, id }) => {
     const suge = suggestion.suggestion;
     const handleOnClick = (e) => {
         dispatch(getApi(e.target.id))
-        dispatch(setSearchValue(true));
+        dispatch(setFlag(true));
+        dispatch(setSearchValue(e.target.id));
         };
     
     return (
