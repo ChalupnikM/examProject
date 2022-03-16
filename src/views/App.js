@@ -1,10 +1,15 @@
 import './App.css';
 import React from 'react';
-import Forms from './Forms';
+import Forms from './Views';
+
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
 
 const App = () => {
   return (
-    <Forms />
+    <Provider store={store}>
+      <Forms />
+    </Provider>
   );
 }
 
