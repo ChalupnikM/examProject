@@ -1,10 +1,16 @@
-import './App.css';
+
+import React from 'react';
+
+import Views from './Views';
+
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
 
 const App = () => {
   return (
-    <div className="App">
-      <h1>What photos are you interested in?</h1>
-    </div>
+    <Provider store={store}>
+      <Views />
+    </Provider>
   );
 }
 
