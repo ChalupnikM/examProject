@@ -8,17 +8,16 @@ export const getSugApi = createAsyncThunk(
     'suggestionApi/getApi',
     async (propsValue, thunkAPI) => {
         try {
-
             const searchValue = propsValue;
-            console.log(searchValue)
-            const url1 = `https://unsplash.com/nautocomplete/${searchValue}`;
-            const url = 'https://cors-anywhere.herokuapp.com/' + url1;
-
-            const response = await axios.get(url)
-            console.log(response);
-
+            const url1 = `http://localhost:3000/${searchValue}`;
+            const response = await axios.get(url1,  {
+                headers: {
+                  'Access-Control-Allow-Origin': '*',
+                  'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+                  'Access-Control-Allow-Headers': "append,delete,entries,foreach,get,has,keys,set,values,Authorization",
+                }
+              });
             thunkAPI.dispatch(setSuggestion(response.data.fuzzy))
-
             return response.data.fuzzy;
 
         } catch (error) {

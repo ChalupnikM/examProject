@@ -9,34 +9,21 @@ import { getApi } from '../store/apiSlice';
 import { getSugApi } from '../store/suggestionApiSlice';
 import { setFlag } from '../store/flagSlice';
 import { setSearchValue } from '../store/searchValue';
+import { setSuggestion } from '../store/suggestionSlice';
+import { setValidationValue } from '../store/validationSlice';
 
 
 
 const Views = () => {
-    const ApiKey = 'HHJJ-3BSjvgICRaHgrH0Sjx-YPSdZkt_t0hlLr1BBoQ';
     const dispatch = useDispatch()
     const searchValue = useSelector(state => state.searchValue.searchValue);
     const flag = useSelector(state => state.flag.flag);
-    console.log(flag);
-
-    //const [searchValue, setSearchValues] = useState('');
     const [autoSuggested, setAutoSuggested] = useState('');
-
-    const url = `https://api.unsplash.com/search/photos?page=1&query=${searchValue}&client_id=${ApiKey}`;
-    const url1 = `https://unsplash.com/nautocomplete/${searchValue}`;
-
-    useEffect(() => {
-        if (searchValue.length > 2) {
-            dispatch(getSugApi(searchValue));
-        }
-        else {
-            setAutoSuggested('');
-        }
-
-    }, [searchValue.length, url1]);
 
     const handleInputChange = (e) => {
         dispatch(setSearchValue(e.target.value));
+        dispatch(getSugApi(e.target.value));
+        dispatch(setValidationValue(e.target.value));
     };
 
     const handleSubmit = (e) => {
@@ -44,6 +31,8 @@ const Views = () => {
         if (searchValue) {
             dispatch(getApi(searchValue));
             dispatch(setFlag(true));
+            dispatch(setSuggestion(''));
+            dispatch(setValidationValue(''));
         }
         else {
             console.warn('coś poszło nie tak')

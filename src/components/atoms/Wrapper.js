@@ -2,26 +2,21 @@ import styled from "styled-components";
 
 export const Wrapper = styled.div`
 display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  flex-wrap: wrap;
+flex-direction: column;
+flex-wrap: wrap;
+  height: 200px;
 `;
 
-// export const GridWrapper = styled.div`
-//   display: flex;
-//   justify-content: center;
-// `
-
-// export const GalleryWrapper = styled.div`
-// max-width: 100px;
-// max-height: 100px
-// height: 100px;
-// padding-top: 3.2rem;
-// padding-left: rem;
-// display: grid;
-// grid-template-columns: repeat(2, 8rem);
-// margin-bottom: 5 rem;
-// `;
+export const FormWrapper = styled.div`
+display: flex;
+flex-direction: column;
+flex-wrap: wrap;
+  height: 300px;
+`;
+export const MiniWrapper = styled.div`
+display: flex;
+flex-direction: rows;
+`;
 
 export const Img = styled.div`
 max-width: 300px;

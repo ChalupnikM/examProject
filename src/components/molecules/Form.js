@@ -1,35 +1,49 @@
 import React from 'react';
+
 import { Input } from '../atoms/Input';
-import { Wrapper } from '../atoms/Wrapper';
+import { MiniWrapper, FormWrapper } from '../atoms/Wrapper';
 import { Button } from '../atoms/Button';
+import { Suggestion } from '../atoms/Suggestion';
+
 import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+
 import { getApi } from '../../store/apiSlice';
 import { setFlag } from '../../store/flagSlice';
-import { useDispatch } from 'react-redux';
 import { setSearchValue } from '../../store/searchValue';
+import { setSuggestion } from '../../store/suggestionSlice';
+import { setValidationValue } from '../../store/validationSlice';
 
 
 const Form = ({ onChange, value, name, id }) => {
     const dispatch = useDispatch()
-    const suggestion = useSelector(state => state.suggestion);
-    const suge = suggestion.suggestion;
+    const suggestion = useSelector(state => state.suggestion.suggestion);
+
     const handleOnClick = (e) => {
-        dispatch(getApi(e.target.id))
         dispatch(setFlag(true));
+        dispatch(getApi(e.target.id))
         dispatch(setSearchValue(e.target.id));
+        dispatch(setSuggestion(''));
+        dispatch(setValidationValue(''));
         };
     
     return (
-        <Wrapper>
+        <FormWrapper>
+            <p>Wpisz kategorie i wyszukaj zdjęcia</p>
+            <MiniWrapper>
             <Input name={name} id={id} value={value} onChange={onChange} placeholder="Search" />
-            {suge ? suge.map((fuzzy, priority) => (
-                <div key={priority} id={fuzzy.query} onClick={handleOnClick}>{fuzzy.query}</div>
-
+            <Button type="submit">Szukaj</Button>
+            </MiniWrapper>
+            {value.length > 2 ?
+            <>
+            {suggestion.length >= 1 ? suggestion.map((fuzzy, priority) => (
+                <Suggestion key={priority} id={fuzzy.query} onClick={handleOnClick}>{fuzzy.query}</Suggestion>
             ))
-                : null}
-
-            <Button type="submit">Send</Button>
-        </Wrapper>
+                : <Suggestion>Brak wyników</Suggestion>}
+            </>
+            : null}
+            
+        </FormWrapper>
     );
 };
 

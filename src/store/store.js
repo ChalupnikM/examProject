@@ -7,6 +7,7 @@ import apiReducer from './apiSlice';
 import SuggestionApiReducer from './suggestionApiSlice';
 import searchReducer from './searchValue';
 import flagReducer from './flagSlice'
+import validationReducer from './validationSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +17,7 @@ export const store = configureStore({
         sugApi: SuggestionApiReducer,
         searchValue: searchReducer,
         flag: flagReducer,
-        
+        validationValue: validationReducer,  
     },
     middleware: (applyMiddleware) => applyMiddleware(thunk)
 });

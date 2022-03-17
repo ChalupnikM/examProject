@@ -1,6 +1,7 @@
-import './App.css';
+
 import React from 'react';
-import Forms from './Views';
+
+import Views from './Views';
 
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
@@ -8,7 +9,7 @@ import { store } from '../store/store';
 const App = () => {
   return (
     <Provider store={store}>
-      <Forms />
+      <Views />
     </Provider>
   );
 }

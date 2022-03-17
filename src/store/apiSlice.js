@@ -10,18 +10,12 @@ export const getApi = createAsyncThunk(
         try {
             const ApiKey = 'HHJJ-3BSjvgICRaHgrH0Sjx-YPSdZkt_t0hlLr1BBoQ';
             const searchValue = propsValue;
-
             const url = `https://api.unsplash.com/search/photos?page=1&query=${searchValue}&client_id=${ApiKey}`;
-
             const response = await axios.get(url)
-            console.log(response);
-
             thunkAPI.dispatch(setAllPhotos(response.data.results))
-
             return response.data.results;
-
         } catch (error) {
-            console.log(error);
+            alert(error + "coś poszło nie tak, spróbuj jeszcze raz");
         }
 
     }
