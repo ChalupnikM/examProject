@@ -9,7 +9,7 @@ export const getSugApi = createAsyncThunk(
     async (propsValue, thunkAPI) => {
         try {
             const searchValue = propsValue;
-            const url1 = `http://localhost:3000/${searchValue}`;
+            const url1 = `https://exam-unsplash-project.herokuapp.com/${searchValue}`;
             const response = await axios.get(url1,  {
                 headers: {
                   'Access-Control-Allow-Origin': '*',

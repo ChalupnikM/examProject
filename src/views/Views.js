@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React  from 'react';
 import Form from '../components/molecules/Form';
 import Gallery from '../components/molecules/Gallery';
 import { ViewFormWrapper } from '../components/atoms/ViewWrapper';
@@ -18,7 +18,6 @@ const Views = () => {
     const dispatch = useDispatch()
     const searchValue = useSelector(state => state.searchValue.searchValue);
     const flag = useSelector(state => state.flag.flag);
-    const [autoSuggested, setAutoSuggested] = useState('');
 
     const handleInputChange = (e) => {
         dispatch(setSearchValue(e.target.value));
@@ -42,9 +41,9 @@ const Views = () => {
     return (
         <ViewFormWrapper as="form" onSubmit={handleSubmit}>
             {flag ?
-                <Gallery id="searchid" name="searchvalue" autoSuggested={autoSuggested} value={searchValue} onChange={handleInputChange} />
+                <Gallery id="searchid" name="searchvalue" value={searchValue} onChange={handleInputChange} />
                 :
-                <Form id="searchid" name="searchvalue" autoSuggested={autoSuggested} value={searchValue} onChange={handleInputChange} />
+                <Form id="searchid" name="searchvalue" value={searchValue} onChange={handleInputChange} />
             }
         </ViewFormWrapper>
     )
