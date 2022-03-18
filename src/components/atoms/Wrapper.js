@@ -6,6 +6,8 @@ flex-direction: column;
 flex-wrap: wrap;
 height: auto;
 min-height: 200px;
+margin-bottom: 10px;
+width: auto;
 
 `;
 
@@ -15,9 +17,11 @@ flex-direction: column;
 flex-wrap: wrap;
   height: 300px;
   text-align: center;
+  width: auto;
   
 `;
 export const MiniWrapper = styled.div`
+
 display: flex;
 flex-direction: rows;
 justify-content: center;
@@ -31,12 +35,13 @@ border-radius: 30px;
 
 export const GridWrapper = styled.div`
 margin: auto;
+width: auto;
 background: rgba(255, 255, 255, 0.2);
 box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-padding: 40px;
+padding: auto;
 display: grid;
 grid-template-columns: auto 1fr;
-grid-gap: 50px;
+grid-gap: 5px;
 align-items: center;
 max-width: 800px;
 `
@@ -49,7 +54,7 @@ grid-gap: 30px;
 `
 
 export const ModalWrapper = styled.div`
-  margin: 30px auto;
+  margin: 50px auto;
   background-color: #FFFFFF;
   width: 90%;
   max-width: 800px;

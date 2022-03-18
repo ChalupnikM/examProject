@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 import { MiniInput } from '../atoms/MiniInput';
 import { Wrapper } from '../atoms/Wrapper';
-import { GalleryWrapper, GridWrapper, Img, ModalWrapper, MiniWrapper } from '../atoms/Wrapper';
-import { MiniButton } from '../atoms/Button';
-import { MiniSuggestion } from '../atoms/Suggestion';
+import { GridWrapper, Img, ModalWrapper, MiniWrapper } from '../atoms/Wrapper';
+import { Button } from '../atoms/Button';
+import { Suggestion } from '../atoms/Suggestion';
 
 import Popup from 'reactjs-popup';
 
@@ -55,44 +55,47 @@ const Gallery = ({ onChange, value, name, id }) => {
 
     }
     return (
-        <>
+        <Wrapper>
             <Wrapper>
                 <MiniWrapper>
                     <MiniInput name={name} id={id} value={value} onChange={onChange} placeholder="Search" />
-                    <MiniButton type="submit">Szukaj</MiniButton>
+                    <Button type="submit">Szukaj</Button>
                 </MiniWrapper>
+                {validationValue.length > 2 ?
+                <>
                 {suggestion.length > 1 ? suggestion.map((fuzzy, priority) => (
-                    <MiniSuggestion key={priority} id={fuzzy.query} onClick={handleOnClick}>{fuzzy.query}</MiniSuggestion>
-                )) :
-                    <>
+                    <Suggestion key={priority} id={fuzzy.query} onClick={handleOnClick}>{fuzzy.query}</Suggestion>
+                )) : 
+                <>
                         {validationValue.length > 3 ?
-                            <MiniSuggestion>Brak podpowiedzi</MiniSuggestion>
+                            <Suggestion>Brak wyników</Suggestion>
                             : null}
-                    </>
+                </>
                 }
+                </>
+                : null}
             </Wrapper>
-            {photos.length > 0 ?
-                <GridWrapper>
-                    {photos.map((photo, id) => (
-                        <GalleryWrapper key={id}>
+                {photos.length > 0 ?
+                    <GridWrapper>
+                        {photos.map((photo, id) => (
                             <Img as="img" key={id} src={photo.urls.small} alt={[photo.created_at, photo.user.first_name, photo.user.last_name, photo.user.location]} onClick={handleModalClick} />
-                        </GalleryWrapper>
-                    ))}
-                    {modalActive ?
-                        <Popup open={modalActive} closeOnDocumentClick onClose={closeModal}>
-                            <ModalWrapper>
-                                <div onClick={closeModal}>
-                                    <img src={photo} alt={photo.description} />
-                                    <p>Autor: {authorInfo[1]} {authorInfo[2]}</p>
-                                    <p>Lokalizacja: {authorInfo[3] ? <>{authorInfo[3]} {authorInfo[4]}</> : "Brak"}</p>
-                                    <p>Data: {month} {year}</p>
-                                </div>
-                            </ModalWrapper>
-                        </Popup>
-                        : null}
-                </GridWrapper>
-                : <GridWrapper>Brak wyników</GridWrapper>}
-        </>
+                        ))}
+                        {modalActive ?
+                            <Popup open={modalActive} closeOnDocumentClick onClose={closeModal}>
+                                <ModalWrapper>
+                                    <div onClick={closeModal}>
+                                        <img src={photo} alt={photo.description} />
+                                        <p>Autor: {authorInfo[1]} {authorInfo[2]}</p>
+                                        <p>Lokalizacja: {authorInfo[3] ? <>{authorInfo[3]} {authorInfo[4]}</> : "Brak"}</p>
+                                        <p>Data: {month} {year}</p>
+                                    </div>
+                                </ModalWrapper>
+                            </Popup>
+                            : null}
+                    </GridWrapper>
+                    : <GridWrapper>Brak wyników</GridWrapper>}
+
+            </Wrapper>
     );
 };
 

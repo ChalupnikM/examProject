@@ -11,7 +11,7 @@ box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
 border-radius: 10px;
 display: block;
 margin-top 10px;
-font-size: 30px;
+font-size: 20px;
 
 &:focus {
     outline: none;
