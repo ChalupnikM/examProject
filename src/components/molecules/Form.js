@@ -31,7 +31,7 @@ const Form = ({ onChange, value, name, id }) => {
         <FormWrapper>
             <p>Wpisz kategorie i wyszukaj zdjęcia</p>
             <MiniWrapper>
-            <Input name={name} id={id} value={value} onChange={onChange} placeholder="Search" />
+            <Input name={name} id={id} value={value} onChange={onChange} placeholder="Wyszukaj" />
             <Button type="submit">Szukaj</Button>
             </MiniWrapper>
             {value.length > 2 ?

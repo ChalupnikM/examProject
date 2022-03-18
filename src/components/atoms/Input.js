@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const Input = styled.input`
-width: 700px;
+width: auto;
+max-width: 500px;
 height: 50px;
-padding: 7px 150px;
+padding: 7px auto;
 border: 1px solid #ECEFF7;
 box-sizing: border-box;
 box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);

@@ -9,7 +9,7 @@ color: #737C8E;
 width: 55px;
 height: 40px;
 padding: 4px 3px;
-margin-top: 10px;
+margin-top: 30px;
 
 &:active {
     box-shadow: 0 1px #ECEFF7;
