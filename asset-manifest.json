@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/examProject/static/css/main.b51e8bf9.css",
-    "main.js": "/examProject/static/js/main.21d9a80b.js",
+    "main.js": "/examProject/static/js/main.a8a12567.js",
     "static/media/45degreee_fabric.png": "/examProject/static/media/45degreee_fabric.26e6dbe3813500734aa3.png",
     "index.html": "/examProject/index.html",
     "main.b51e8bf9.css.map": "/examProject/static/css/main.b51e8bf9.css.map",
-    "main.21d9a80b.js.map": "/examProject/static/js/main.21d9a80b.js.map"
+    "main.a8a12567.js.map": "/examProject/static/js/main.a8a12567.js.map"
   },
   "entrypoints": [
     "static/css/main.b51e8bf9.css",
-    "static/js/main.21d9a80b.js"
+    "static/js/main.a8a12567.js"
   ]
 }
